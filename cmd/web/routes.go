@@ -28,6 +28,7 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Get("/majors-suite", handlers.Repo.Majors)
 	mux.Get("/make-reservation", handlers.Repo.Reservation)
 	mux.Get("/contact", handlers.Repo.Contact)
+	mux.Get("/availability", handlers.Repo.Availability)
 
 	//Declarando ubicacion en el servidor
 	fileServer := http.FileServer(http.Dir("./static/"))
