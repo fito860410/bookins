@@ -9,7 +9,7 @@ import (
 	"github.com/go-chi/chi/middleware"
 )
 
-func routes(app *config.AppConfig) http.Handler{
+func routes(app *config.AppConfig) http.Handler {
 	//mux := pat.New()
 
 	//mux.Get("/", http.HandlerFunc(handlers.Repo.Home))
@@ -24,6 +24,10 @@ func routes(app *config.AppConfig) http.Handler{
 
 	mux.Get("/", handlers.Repo.Home)
 	mux.Get("/about", handlers.Repo.About)
+	mux.Get("/generals-quarters", handlers.Repo.Generals)
+	mux.Get("/majors-suite", handlers.Repo.Majors)
+	mux.Get("/make-reservation", handlers.Repo.Reservation)
+	mux.Get("/contact", handlers.Repo.Contact)
 
 	//Declarando ubicacion en el servidor
 	fileServer := http.FileServer(http.Dir("./static/"))
@@ -31,6 +35,3 @@ func routes(app *config.AppConfig) http.Handler{
 
 	return mux
 }
-
-
-
